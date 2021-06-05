@@ -14,15 +14,16 @@ import DialogActions from '@material-ui/core/DialogActions';
 const NavigationBar = () => {
     const [value, setValue] = useState('DEFAULT');
     const [open, setOpen] = useState(false);
+    const [register, setRegister] = useState(false);
     useEffect(() => {
         debugger;
         console.log("VALUE", value);
     }, [])
     const handleLogin = () => {
-        setOpen(true);
+        setOpen(!open);
     }
-    const handleClose = () => {
-        setOpen(false);
+    const handleRegister = () => {
+        setRegister(!register);
     }
 
     return (
@@ -38,30 +39,79 @@ const NavigationBar = () => {
                     <Button onClick={handleLogin} style={{ position: "relative", left: '1200px' }} color="inherit">
                         Login
                     </Button>
-                    <Button style={{position: "relative", left: '1000px'}} variant="contained" color="secondary">
+                    <Button onClick={handleRegister} style={{position: "relative", left: '1000px'}} variant="contained" color="secondary">
                         Register
                     </Button>
                 </Toolbar>
             </AppBar>
-            <Dialog open={open} /*open={open} onClose={handleClose}*/ aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+            <Dialog maxWidth="sm" fullWidth={true} open={open} /*open={open} onClose={handleClose}*/ aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Login</DialogTitle>
                 <DialogContent>
-                <DialogContentText>
-                    To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally.
-                </DialogContentText>
                 <TextField
                     autoFocus
                     margin="dense"
-                    id="name"
-                    label="Email Address"
+                    id="username"
+                    label="Username/Email Address"
                     type="email"
                     fullWidth
-                />
+                    />
+                    <TextField
+                        margin="dense"
+                        id="name"
+                        label="Password"
+                        type="password"
+                        fullWidth
+                    />
+                    
                 </DialogContent>
                 <DialogActions>
-                <Button onClick={handleClose} color="primary">
+                <Button onClick={handleLogin} color="primary">
                     Close
+                </Button>
+                <Button  color="primary">
+                    Login
+                </Button>
+                </DialogActions>
+            </Dialog>
+            <Dialog maxWidth="sm" fullWidth={true} open={register} /*open={open} onClose={handleClose}*/ aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Register</DialogTitle>
+                <DialogContent>
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="username"
+                    label="Name"
+                    type="email"
+                    fullWidth
+                    />
+                    <TextField
+                        margin="dense"
+                        id="name"
+                        label="Contact"
+                        type="number"
+                        fullWidth
+                    />
+                    <TextField
+                        margin="dense"
+                        id="name"
+                        label="Email"
+                        type="email"
+                        fullWidth
+                    />
+                    <TextField
+                        margin="dense"
+                        id="name"
+                        label="Address"
+                        type="text"
+                        fullWidth
+                    />
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleRegister} color="primary">
+                        Close
+                </Button>
+                <Button color="primary">
+                    Register
                 </Button>
                 </DialogActions>
             </Dialog>

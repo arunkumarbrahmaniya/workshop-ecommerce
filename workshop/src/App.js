@@ -7,6 +7,7 @@ function App() {
     <> {/* React Fragment */}
       <NavigationBar />
       <h1>Heading1</h1>
+      <h1>Heading1</h1><h1>Heading1</h1>
     </>
     
   );
