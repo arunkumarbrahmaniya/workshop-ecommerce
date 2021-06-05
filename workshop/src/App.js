@@ -1,13 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import NavigationBar from './components/Header/AppBar';
 function App() {
+
   return (
-    <div className="App">
-      <div style={{backgroundColor:"red", height:400, width:400}}>
-        <p style={{color:"blue"}}>TEST Project</p>
-      </div>
-    </div>
+    <> {/* React Fragment */}
+      <NavigationBar />
+      <h1>Heading1</h1>
+    </>
+    
   );
 }
 
